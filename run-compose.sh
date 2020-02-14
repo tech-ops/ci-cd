@@ -5,7 +5,7 @@ set -ex
 # create grafana fs structure for data persistency
 create_fs_structure() {
         #nexus
-        mkdir ./nexus-data
+        mkdir -p ./nexus-data
         sudo chown -R 200 nexus-data
 
 }
