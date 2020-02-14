@@ -58,7 +58,7 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
 networks:
-  my-network-name:
+  ci_cd:
    name: ci_cd
       
 volumes:
