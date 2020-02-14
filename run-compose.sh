@@ -6,7 +6,7 @@ set -ex
 create_fs_structure() {
         #nexus
         mkdir ./nexus-data
-        chown -R 200 nexus-data
+        sudo chown -R 200 nexus-data
 
 }
 
