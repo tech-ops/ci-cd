@@ -19,7 +19,7 @@ run_compose() {
 
 #install docker in jenkins
 install_docker_in_jenkins() {
-
+        sleep 10
         docker exec -it -u root jenkins bash -c '/var/jenkins_home/install-docker.sh'
 }
 
