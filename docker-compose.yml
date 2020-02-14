@@ -33,6 +33,8 @@ services:
       - "9000:9000"
       - "9092:9092"
     network_mode: "host"
+    depends_on:
+      - sonardb
     volumes:
       - sonarqube_conf:/opt/sonarqube/conf
       - sonarqube_data:/opt/sonarqube/data
