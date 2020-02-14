@@ -7,7 +7,8 @@ services:
     ports:
       - "8080:8080"
       - "50000:50000"
-    network_mode: "host"
+    networks:
+      - ci_cd
     volumes:
       - "./jenkins_home:/var/jenkins_home"
       - "/var/run/docker.sock:/var/run/docker.sock"
@@ -18,7 +19,8 @@ services:
     ports:
       - "8081:8081"
       - "8082:8082"
-    network_mode: "host"
+    networks:
+      - ci_cd
     volumes:
       - "./nexus-data:/nexus-data"
   sonarqube:
@@ -32,7 +34,8 @@ services:
     ports:
       - "9000:9000"
       - "9092:9092"
-    network_mode: "host"
+    networks:
+      - ci_cd
     depends_on:
       - sonardb
     volumes:
@@ -48,11 +51,16 @@ services:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
       - POSTGRES_DB=sonarqube
-    network_mode: "host"
+    networks:
+      - ci_cd
     volumes:
       - sonarqube_db:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
 
+networks:
+  my-network-name:
+   name: ci_cd
+      
 volumes:
   postgresql_data:
   sonarqube_bundled-plugins:
